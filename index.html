@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thousand Labs — Applis pour étudiants et petits entrepreneurs</title>
+<meta name="description" content="Thousand Labs crée des applis simples, hors ligne et sans abonnement : ScoreUp, Budget Flow, Nexus Track et Power Log.">
+<meta name="theme-color" content="#15233F">
+<meta property="og:title" content="Thousand Labs">
+<meta property="og:description" content="Des applis simples, hors ligne et sans abonnement : ScoreUp, Budget Flow, Nexus Track, Power Log.">
+<meta property="og:image" content="https://thousandlabs.github.io/logo.png">
+<meta property="og:url" content="https://thousandlabs.github.io/">
+<link rel="icon" href="logo-icone.png">
+<link rel="apple-touch-icon" href="logo-icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#15233F;--navy2:#1E3157;--amber:#E8A317;--cream:#F6F4EF;--ink:#15233F;--muted:#4A5568;--line:#E3DFD6}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+  a{color:var(--navy)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header{background:var(--navy);color:#fff}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+  .brand b{display:block;font-size:18px;letter-spacing:2px;line-height:1}
+  .brand span{display:block;font-size:18px;letter-spacing:2px;line-height:1.1}
+  .nav-links{display:flex;gap:20px;flex-wrap:wrap}
+  .nav-links a{color:#fff;text-decoration:none;font-weight:500;padding:10px 0}
+  .nav-links a:hover{color:var(--amber)}
+  .hero{padding:56px 0 72px;display:flex;flex-wrap:wrap;align-items:center;gap:40px}
+  .hero-text{flex:1 1 420px}
+  .hero h1{font-size:clamp(34px,6vw,56px);line-height:1.05;margin:0 0 18px;letter-spacing:-1px}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero p{font-size:19px;color:#D5DCE8;margin:0 0 28px;max-width:560px}
+  .hero-mark{flex:0 1 260px;display:flex;justify-content:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none}
+  .btn-amber{background:var(--amber);color:var(--navy)}
+  .btn-amber:hover{background:#F2B53A}
+  .btn-ghost{border:2px solid #fff;color:#fff;margin-left:10px}
+  .btn-ghost:hover{background:#fff;color:var(--navy)}
+  section{padding:64px 0}
+  h2{font-size:32px;margin:0 0 8px;letter-spacing:-.5px}
+  .lead{color:var(--muted);margin:0 0 32px;font-size:17px}
+  .apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+  .card-head{display:flex;align-items:center;gap:14px}
+  .card img{width:56px;height:56px;border-radius:14px;background:var(--navy);flex-shrink:0}
+  .card h3{margin:0;font-size:21px}
+  .tag{font-size:13px;font-weight:500;color:var(--muted)}
+  .card p{margin:0;color:var(--muted);flex:1}
+  .card-links{display:flex;gap:10px;flex-wrap:wrap}
+  .card-links .btn{flex:1 1 130px}
+  .card .btn{min-height:44px;padding:0 16px;font-size:15px}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{background:var(--navy2)}
+  .btn-line{border:1.5px solid var(--navy);color:var(--navy)}
+  .btn-line:hover{background:var(--navy);color:#fff}
+  .points{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+  .point h3{margin:10px 0 6px;font-size:19px}
+  .point p{margin:0;color:var(--muted)}
+  .point svg{display:block}
+  .contact{background:var(--navy);color:#fff;border-radius:24px;padding:40px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+  .contact h2{color:#fff}
+  .contact p{color:#D5DCE8;margin:0}
+  footer{padding:32px 0 48px;color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+  @media (max-width:520px){.btn-ghost{margin:12px 0 0}.hero{padding-top:32px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="./" aria-label="Thousand Labs, accueil">
+        <svg width="40" height="40" viewBox="0 -2 120 120" aria-hidden="true"><path d="M20 102 V22 L60 72 L100 22 V102" fill="none" stroke="#fff" stroke-width="15"/><circle cx="60" cy="44" r="7" fill="#E8A317"/><circle cx="70" cy="27" r="4.5" fill="#E8A317"/></svg>
+        <div><b>THOUSAND</b><span>LABS</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="#applis">Nos applis</a>
+        <a href="#pourquoi">Pourquoi nous</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Des applis simples pour <em>réussir</em> et <em>mieux gérer</em>.</h1>
+        <p>Thousand Labs est une équipe d'étudiants de l'ISM Dakar. Nous créons des applis qui fonctionnent hors ligne, sans compte ni abonnement : réviser, gérer son budget, suivre ses ventes ou sa consommation d'électricité.</p>
+        <a class="btn btn-amber" href="#applis">Découvrir nos applis</a>
+        <a class="btn btn-ghost" href="https://wa.me/221711216581">Nous écrire sur WhatsApp</a>
+      </div>
+      <div class="hero-mark">
+        <svg width="220" height="220" viewBox="0 -2 120 120" role="img" aria-label="Logo Thousand Labs"><path d="M20 102 V22 L60 72 L100 22 V102" fill="none" stroke="#fff" stroke-width="15"/><circle cx="60" cy="44" r="7" fill="#E8A317"/><circle cx="70" cy="27" r="4.5" fill="#E8A317"/></svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="applis">
+    <div class="wrap">
+      <h2>Nos applis</h2>
+      <p class="lead">Ouvrez l&#39;appli pour l&#39;essayer, ou consultez sa brochure pour voir les fonctions et les prix.</p>
+      <div class="apps">
+        <article class="card">
+          <div class="card-head"><img src="https://thousandlabs.github.io/ScoreUp/icon-192.png" alt=""><div><h3>ScoreUp</h3><span class="tag">Révisions · étudiants</span></div></div>
+          <p>QCM, examens chronométrés et exercices corrigés pour préparer ses partiels, filière par filière.</p>
+          <div class="card-links"><a class="btn btn-navy" href="https://thousandlabs.github.io/ScoreUp/">Ouvrir l'appli</a><a class="btn btn-line" href="https://thousandlabs.github.io/ScoreUp/ScoreUp-presentation.pdf">Voir la brochure</a></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><img src="https://thousandlabs.github.io/Budget-Flow/icon-192.png" alt=""><div><h3>Budget Flow</h3><span class="tag">Finances perso · petits projets</span></div></div>
+          <p>Suivez vos dépenses, votre budget et vos petits projets commerciaux, en mode simple ou complet.</p>
+          <div class="card-links"><a class="btn btn-navy" href="https://thousandlabs.github.io/Budget-Flow/">Ouvrir l'appli</a><a class="btn btn-line" href="https://thousandlabs.github.io/Budget-Flow/Budget-Flow-presentation.pdf">Voir la brochure</a></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><img src="https://thousandlabs.github.io/Nexus-Track/icon-192.png" alt=""><div><h3>Nexus Track</h3><span class="tag">Ventes · équipes</span></div></div>
+          <p>Suivez les ventes de votre équipe et la répartition des gains, synchronisés entre les membres.</p>
+          <div class="card-links"><a class="btn btn-navy" href="https://thousandlabs.github.io/Nexus-Track/">Ouvrir l'appli</a><a class="btn btn-line" href="https://thousandlabs.github.io/Nexus-Track/Nexus-Track-presentation.pdf">Voir la brochure</a></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><img src="https://thousandlabs.github.io/Power-Log/icon-192.png" alt=""><div><h3>Power Log</h3><span class="tag">Électricité · Woyofal</span></div></div>
+          <p>Suivez votre consommation d'électricité Woyofal / Senelec et anticipez vos recharges.</p>
+          <div class="card-links"><a class="btn btn-navy" href="https://thousandlabs.github.io/Power-Log/">Ouvrir l'appli</a><a class="btn btn-line" href="https://thousandlabs.github.io/Power-Log/Power-Log-presentation.pdf">Voir la brochure</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pourquoi" style="padding-top:0">
+    <div class="wrap">
+      <h2>Pourquoi nos applis</h2>
+      <p class="lead">Pensées pour le quotidien des étudiants et des petits entrepreneurs au Sénégal.</p>
+      <div class="points">
+        <div class="point">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#15233F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 2l20 20"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.8a15 15 0 0 1 4.2-2.7"/><path d="M10.7 5.1A15 15 0 0 1 22 8.8"/><path d="M5 12.9a10 10 0 0 1 5.2-2.8"/><path d="M15 10.4a10 10 0 0 1 4 2.5"/><circle cx="12" cy="20" r="1"/></svg>
+          <h3>Hors ligne</h3><p>Une fois installées, nos applis marchent sans connexion internet.</p>
+        </div>
+        <div class="point">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#15233F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <h3>Vos données chez vous</h3><p>Pas de compte à créer : vos données restent sur votre téléphone.</p>
+        </div>
+        <div class="point">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#15233F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <h3>Paiement unique</h3><p>Pas d'abonnement : un code d'activation, et l'appli est à vous.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2>Obtenir un code d'activation</h2>
+          <p>Écrivez-nous sur WhatsApp pour les tarifs, une démonstration ou votre code.</p>
+        </div>
+        <a class="btn btn-amber" href="https://wa.me/221711216581">WhatsApp : 71 121 65 81</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Thousand Labs — Dakar, Sénégal</span>
+    <a href="https://github.com/ThousandLabs">Nos applis sur GitHub</a>
+  </div>
+</footer>
+</body>
+</html>
