@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thousand Labs — Applis pour étudiants et petits entrepreneurs</title>
-<meta name="description" content="Thousand Labs crée des applis simples, hors ligne et sans abonnement : ScoreUp, Budget Flow, Nexus Track et Power Log.">
+<meta name="description" content="Thousand Labs crée des applis simples, hors ligne et sans abonnement (ScoreUp, Budget Flow, Nexus Track, Power Log) et propose des services de configuration de téléphone.">
 <meta name="theme-color" content="#15233F">
 <meta property="og:title" content="Thousand Labs">
 <meta property="og:description" content="Des applis simples, hors ligne et sans abonnement : ScoreUp, Budget Flow, Nexus Track, Power Log.">
@@ -38,7 +38,8 @@
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none}
   .btn-amber{background:var(--amber);color:var(--navy)}
   .btn-amber:hover{background:#F2B53A}
-  .btn-ghost{border:2px solid #fff;color:#fff;margin-left:10px}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+  .btn-ghost{border:2px solid #fff;color:#fff}
   .btn-ghost:hover{background:#fff;color:var(--navy)}
   section{padding:64px 0}
   h2{font-size:32px;margin:0 0 8px;letter-spacing:-.5px}
@@ -66,7 +67,13 @@
   .contact p{color:#D5DCE8;margin:0}
   footer{padding:32px 0 48px;color:var(--muted);font-size:14px}
   footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-  @media (max-width:520px){.btn-ghost{margin:12px 0 0}.hero{padding-top:32px}}
+  .svc .price{font-size:22px;font-weight:700;color:var(--navy)}
+  .svc .price small{font-size:14px;font-weight:500;color:var(--muted)}
+  .svc ul{margin:0;padding-left:20px;color:var(--muted)}
+  .svc ul li{margin:4px 0}
+  .svc .note{font-size:14px;background:var(--cream);border-radius:10px;padding:10px 12px;color:var(--muted)}
+  .svc-icon{width:56px;height:56px;border-radius:14px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  @media (max-width:520px){.hero{padding-top:32px}.hero-btns .btn{flex:1 1 100%}}
 </style>
 </head>
 <body>
@@ -79,6 +86,7 @@
       </a>
       <div class="nav-links">
         <a href="#applis">Nos applis</a>
+        <a href="#services">Nos services</a>
         <a href="#pourquoi">Pourquoi nous</a>
         <a href="#contact">Contact</a>
       </div>
@@ -87,8 +95,11 @@
       <div class="hero-text">
         <h1>Des applis simples pour <em>réussir</em> et <em>mieux gérer</em>.</h1>
         <p>Thousand Labs est une équipe d'étudiants de l'ISM Dakar. Nous créons des applis qui fonctionnent hors ligne, sans compte ni abonnement : réviser, gérer son budget, suivre ses ventes ou sa consommation d'électricité.</p>
-        <a class="btn btn-amber" href="#applis">Découvrir nos applis</a>
-        <a class="btn btn-ghost" href="https://wa.me/221711216581">Nous écrire sur WhatsApp</a>
+        <div class="hero-btns">
+          <a class="btn btn-amber" href="#applis">Découvrir nos applis</a>
+          <a class="btn btn-amber" href="#services">Découvrir nos services</a>
+          <a class="btn btn-ghost" href="https://wa.me/221711216581">Nous écrire sur WhatsApp</a>
+        </div>
       </div>
       <div class="hero-mark">
         <svg width="220" height="220" viewBox="0 -2 120 120" role="img" aria-label="Logo Thousand Labs"><path d="M20 102 V22 L60 72 L100 22 V102" fill="none" stroke="#fff" stroke-width="15"/><circle cx="60" cy="44" r="7" fill="#E8A317"/><circle cx="70" cy="27" r="4.5" fill="#E8A317"/></svg>
@@ -124,6 +135,55 @@
           <div class="card-links"><a class="btn btn-navy" href="https://thousandlabs.github.io/Power-Log/">Ouvrir l'appli</a><a class="btn btn-line" href="https://thousandlabs.github.io/Power-Log/Power-Log-presentation.pdf?v=20261031">Voir la brochure</a></div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="services" style="padding-top:0">
+    <div class="wrap">
+      <h2>Nos services</h2>
+      <p class="lead">Nous configurons votre téléphone avec vous, en une seule séance. Paiement unique, sans abonnement.</p>
+      <div class="apps">
+        <article class="card svc">
+          <div class="card-head"><div class="svc-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/><circle cx="19" cy="5" r="2.2" fill="#E8A317" stroke="none"/></svg></div><div><h3>Sunny English</h3><span class="tag">Immersion en anglais · Android et iPhone</span></div></div>
+          <p>Un environnement complet pour pratiquer l'anglais au quotidien, avec une méthode de 10 minutes par jour.</p>
+          <ul>
+            <li>3 applis gratuites et complémentaires : routine quotidienne, mémorisation du vocabulaire, écoute</li>
+            <li>Téléphone et réseaux sociaux réglés en anglais</li>
+            <li>Un guide avec votre routine et des règles simples pour tenir</li>
+          </ul>
+          <p class="note">Nous fournissons le cadre et les outils ; vos progrès dépendent de votre régularité.</p>
+          <div class="price">2 000 FCFA <small>· installation en 20 min</small></div>
+          <div class="card-links"><a class="btn btn-navy" href="https://wa.me/221711216581?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20pack%20Sunny%20English.">Réserver sur WhatsApp</a></div>
+        </article>
+        <article class="card svc">
+          <div class="card-head"><div class="svc-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 9.5l4 2.5-4 2.5z" fill="#E8A317" stroke="#E8A317"/></svg></div><div><h3>Pack Nika</h3><span class="tag">Anti-publicité · Android</span></div></div>
+          <p>YouTube sans publicité grâce à une version modifiée open source, et des pubs bloquées dans tout le téléphone.</p>
+          <ul>
+            <li>YouTube sans pub, avec lecture en arrière-plan et écran éteint</li>
+            <li>Téléchargement des vidéos pour les regarder hors ligne</li>
+            <li>SponsorBlock : saut automatique des passages sponsorisés</li>
+            <li>YouTube Music sans pub</li>
+            <li>DNS privé : moins de pubs dans le navigateur et les applis</li>
+          </ul>
+          <p class="note">Google combat en permanence ce type d'applis : une méthode peut cesser de marcher, mais des alternatives existent toujours.</p>
+          <div class="price">5 000 FCFA <small>· paiement unique</small></div>
+          <div class="card-links"><a class="btn btn-navy" href="https://wa.me/221711216581?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Pack%20Nika%20(Android).">Réserver sur WhatsApp</a></div>
+        </article>
+        <article class="card svc">
+          <div class="card-head"><div class="svc-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4" stroke="#E8A317"/></svg></div><div><h3>Pack Lite</h3><span class="tag">Anti-publicité · iPhone</span></div></div>
+          <p>YouTube sans publicité sur iPhone grâce à une alternative, sans jailbreak ni ordinateur.</p>
+          <ul>
+            <li>YouTube sans pub, en gardant votre compte Google (abonnements, playlists, historique)</li>
+            <li>Musique en arrière-plan</li>
+            <li>Profil DNS sécurisé : pubs bloquées dans les applis et les jeux</li>
+            <li>Configuration faite avec vous, pas à pas</li>
+          </ul>
+          <p class="note">Le blocage des pubs YouTube est une course sans fin : il peut tomber à tout moment, et nous cherchons alors une autre solution.</p>
+          <div class="price">5 000 FCFA <small>· paiement unique</small></div>
+          <div class="card-links"><a class="btn btn-navy" href="https://wa.me/221711216581?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Pack%20Lite%20(iPhone).">Réserver sur WhatsApp</a></div>
+        </article>
+      </div>
+      <p class="lead" style="margin:20px 0 0;font-size:15px">Pour réserver un créneau : WhatsApp <a href="https://wa.me/221711216581">71 121 65 81</a></p>
     </div>
   </section>
 
