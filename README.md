@@ -11,7 +11,7 @@ Page d'accueil de Thousand Labs, qui présente nos applis :
 
 Et nos services de configuration de téléphone ([section Nos services](https://thousandlabs.github.io/#services)) :
 
-- Sunny English : immersion en anglais (2 000 FCFA)
+- Sunny English : immersion en anglais (3 000 FCFA)
 - Pack Nika : YouTube sans pub et blocage des pubs sur Android (5 000 FCFA)
 - Pack Lite : YouTube sans pub et blocage des pubs sur iPhone (5 000 FCFA)
 
