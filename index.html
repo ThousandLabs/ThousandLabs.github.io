@@ -55,6 +55,9 @@
   .card-links .btn{flex:1 1 130px}
   .card .btn{min-height:44px;padding:0 16px;font-size:15px}
   .btn-navy{background:var(--navy);color:#fff}
+  .btn-wave{background:#1dc8ff;color:#06263a}
+  .btn-wave:hover{background:#4dd5ff}
+  .contact-btns{display:flex;flex-wrap:wrap;gap:10px}
   .btn-navy:hover{background:var(--navy2)}
   .btn-line{border:1.5px solid var(--navy);color:var(--navy)}
   .btn-line:hover{background:var(--navy);color:#fff}
@@ -212,9 +215,12 @@
       <div class="contact">
         <div>
           <h2>Obtenir un code d'activation</h2>
-          <p>Écrivez-nous sur WhatsApp pour les tarifs, une démonstration ou votre code.</p>
+          <p>Écrivez-nous sur WhatsApp pour les tarifs, une démonstration ou votre code. Le paiement Wave se fait directement en ligne.</p>
         </div>
-        <a class="btn btn-amber" href="https://wa.me/221711216581">WhatsApp : 71 121 65 81</a>
+        <div class="contact-btns">
+          <a class="btn btn-amber" href="https://wa.me/221711216581">WhatsApp : 71 121 65 81</a>
+          <a class="btn btn-wave" href="https://pay.wave.com/m/M_sn_2435mflS4o9D/c/sn/" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h15V9H5a2 2 0 0 1-2-2z"/><path d="M16 14.5h.01"/></svg>Payer avec Wave</a>
+        </div>
       </div>
     </div>
   </section>
