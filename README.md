@@ -2,12 +2,13 @@
 
 Site officiel : **https://thousandlabs.github.io/**
 
-Page d'accueil de Thousand Labs, qui présente nos applis :
+Page d'accueil de Thousand Labs, qui présente nos applis (prix affichés sur chaque carte, essai gratuit de 48 h) :
 
 - [ScoreUp](https://thousandlabs.github.io/ScoreUp/) : révisions (QCM, examens chronométrés, exercices corrigés)
 - [Budget Flow](https://thousandlabs.github.io/Budget-Flow/) : finances personnelles et petits projets
 - [Nexus Track](https://thousandlabs.github.io/Nexus-Track/) : suivi des ventes et répartition des gains
 - [Power Log](https://thousandlabs.github.io/Power-Log/) : consommation d'électricité Woyofal / Senelec
+- [Tone Dial](https://github.com/ThousandLabs/Tone-Dial) : lecteur de musique Android hors ligne et sans publicité (1 000 F)
 
 Et nos services de configuration de téléphone ([section Nos services](https://thousandlabs.github.io/#services)) :
 
