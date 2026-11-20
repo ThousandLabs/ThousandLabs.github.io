@@ -15,8 +15,8 @@ Nos applis (prix affichés sur chaque carte, essai gratuit de 48 h) :
 Et nos services de configuration de téléphone ([section Nos services](https://thousandlabs.github.io/#services)) :
 
 - Sunny English : immersion en anglais (3 000 FCFA), brochure `Sunny-English.pdf`
-- Pack Nika : YouTube sans pub, Duolingo sans limite et blocage des pubs sur Android (5 000 FCFA), brochure `Pack-Nika.pdf`
-- Pack Lite : YouTube sans pub, Duolingo sans limite et blocage des pubs sur iPhone (5 000 FCFA), brochure `Pack-Lite.pdf`
+- Pack Nika : YouTube sans pub, Duolingo à énergie illimitée et blocage des pubs sur Android (5 000 FCFA), brochure `Pack-Nika.pdf`
+- Pack Lite : YouTube sans pub, Duolingo en version web (sans pub, 5 cœurs) et blocage des pubs sur iPhone (5 000 FCFA), brochure `Pack-Lite.pdf`
 - Offre combinée : un pack téléphone + Sunny English pour 7 000 FCFA au lieu de 8 000
 
 Les brochures des services se génèrent depuis `brochures/` : contenu dans `services.js`, puis `node build.js` (Playwright et police Inter).
