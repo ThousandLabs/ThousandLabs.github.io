@@ -33,6 +33,13 @@ function html(a) {
   const wa = 'https://wa.me/221711216581?text=' + encodeURIComponent('Bonjour, je souhaite réserver le ' + (a.name === 'Sunny English' ? 'pack Sunny English' : a.name) + '.');
   const blocks = a.blocks.map(b => `<div class="bl"><div class="bh"><span class="bi">${ic(b.i, 17)}</span><h3>${b.t}</h3></div><ul>${b.items.map(x => `<li>${ic('check', 13, a.accent)}<span>${x}</span></li>`).join('')}</ul></div>`).join('');
   const why = a.why.map(w => `<div class="wy"><div class="wt"><span class="bi">${ic(w[0], 16)}</span><b>${w[1]}</b></div><p>${w[2]}</p></div>`).join('');
+  const nika = a.theme === 'nika';
+  /* Pack Nika : couleurs du dieu du soleil (blanc, crème, or et orangé), sans le personnage */
+  const TH = nika ? `.hd{background:radial-gradient(circle at 88% 18%,#FFE7A3 0,#FFF6DD 32%,#FFFDF7 62%,#FFFFFF 100%);color:#15233F}
+  .hd:after{content:"";position:absolute;right:-24mm;top:-26mm;width:96mm;height:96mm;border-radius:50%;opacity:1;background:repeating-conic-gradient(from 0deg,rgba(242,169,0,.20) 0deg 8deg,transparent 8deg 22deg);-webkit-mask:radial-gradient(circle,#000 0 70%,transparent 71%)}
+  .hd:before{content:"";position:absolute;right:12mm;top:10mm;width:24mm;height:24mm;border-radius:50%;background:radial-gradient(circle at 40% 40%,#FFE08A,#F2A900 70%,#E07B00);box-shadow:0 0 0 4mm rgba(242,169,0,.15),0 0 0 9mm rgba(242,169,0,.08);z-index:1}
+  .hd .br path{stroke:#15233F}.tg{color:#C2410C}.hook{color:#4A5568}.kick{background:linear-gradient(90deg,#F2A900,#E07B00)}
+  .pc{background:linear-gradient(135deg,#15233F,#2a2f55)}` : '';
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>
   @page{size:A4;margin:0}*{box-sizing:border-box}html,body{margin:0}
   body{font-family:Inter,system-ui,sans-serif;color:#15233F;width:210mm;height:297mm;display:flex;flex-direction:column;font-size:10.3pt;line-height:1.4}
@@ -58,6 +65,7 @@ function html(a) {
   .cb svg{flex-shrink:0;margin-top:1px}
   .qc{width:52mm;border:1.5px solid #15233F;border-radius:14px;padding:4mm;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm}
   .qc b{font-size:10pt}.qc .n{font-size:15pt;font-weight:800;letter-spacing:.5px}.qc .m{font-size:8.5pt;color:#4A5568}
+  ${TH}
   footer{margin-top:auto;padding:3mm 15mm 5mm;display:flex;justify-content:space-between;font-size:8.5pt;color:#4A5568;border-top:1px solid #E3DFD6}
   </style></head><body>
   <div class="hd"><div class="br">${LOGO}<span>THOUSAND LABS</span></div>

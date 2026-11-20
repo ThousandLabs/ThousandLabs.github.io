@@ -3,7 +3,7 @@ const COMBO = 'Offre combinée : Pack Nika ou Pack Lite + Sunny English pour 7 0
 module.exports = [
 {
   id: 'pack-nika', pdf: 'Pack-Nika.pdf', name: 'Pack Nika', kicker: 'Android',
-  accent: '#16a34a', soft: '#e8f7ee', icon: 'play',
+  accent: '#E0A100', soft: '#FFF4D6', icon: 'play', theme: 'nika',
   tagline: 'Ton téléphone Android, sans publicité.',
   hook: 'Marre des publicités qui coupent tes vidéos, et des abonnements qui s’accumulent ?',
   blocks: [
@@ -14,7 +14,7 @@ module.exports = [
       'SponsorBlock : les passages sponsorisés et les intros sont sautés automatiquement',
       'En résumé : toutes les fonctions habituellement bridées sur YouTube sont débloquées' ] },
     { i: 'book', t: 'Duolingo sans limite', items: [
-      'Cœurs illimités : tu n’es plus bloqué après quelques erreurs',
+      'Énergie illimitée : tu n’es plus bloqué après quelques exercices',
       'Aucune publicité entre les leçons',
       'Apprentissage sans limite, à ton rythme' ] },
     { i: 'shield', t: 'Tout le téléphone protégé', items: [
@@ -40,10 +40,10 @@ module.exports = [
       'YouTube sans publicité, avec lecture en arrière-plan : tu gardes tes abonnements, tes playlists et ton historique',
       '5 versions installées en même temps : si l’une tombe, tu passes simplement à une autre',
       'Google combat en permanence ces solutions : une version peut cesser de fonctionner à tout moment. Dans ce cas, nous en mettons une autre en place. Il existe de nombreuses applis capables de le faire' ] },
-    { i: 'book', t: 'Duolingo sans limite', items: [
-      'Cœurs illimités : tu n’es plus bloqué après quelques erreurs',
-      'Aucune publicité entre les leçons',
-      'Apprentissage sans limite, à ton rythme' ] },
+    { i: 'book', t: 'Duolingo, version web', items: [
+      'La version web de Duolingo, dans le navigateur : aucune publicité',
+      'Le retour du système de cœurs : 5 cœurs à la place de l’énergie',
+      'Tes leçons et ta progression restent les mêmes, sur ton compte' ] },
     { i: 'shield', t: 'Pubs bloquées partout', items: [
       'Profil DNS sécurisé installé directement sur ton iPhone',
       'Fini les bannières et les fenêtres publicitaires dans la plupart des applis' ] }
