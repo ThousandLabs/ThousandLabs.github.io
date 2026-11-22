@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<meta name="robots" content="noindex">
+<title>La transformation intégrale · Développement personnel et intelligence émotionnelle</title>
+<meta property="og:title" content="La transformation intégrale">
+<meta property="og:description" content="Développement personnel et intelligence émotionnelle · Évaluation de groupe">
+<meta property="og:image" content="apercu.jpg">
+<link rel="icon" href="../logo-icone.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#111;color:#f2f2f2;font-family:Arial,Helvetica,sans-serif;overflow:hidden;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;touch-action:none}
+#track{position:relative;width:min(100vw,calc(100vh*16/9));aspect-ratio:16/9;transition:transform .28s ease}
+#track img{-webkit-user-drag:none;pointer-events:none;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;box-shadow:0 6px 30px rgba(0,0,0,.5)}
+#bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:6px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(0,0,0,.75));transition:opacity .4s}
+body.idle #bar,body.idle #prog{opacity:0}
+body.idle{cursor:none}
+.b{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;border-radius:10px;background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+.b:hover,.b.on{background:rgba(242,183,5,.9);color:#111}
+.b svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#num{min-width:72px;text-align:center;font-size:15px;font-variant-numeric:tabular-nums}
+.sp{flex:1}
+#prog{position:fixed;left:0;top:0;height:3px;background:#f2b705;transition:width .25s,opacity .4s}
+#notes{position:fixed;left:0;right:0;bottom:0;max-height:42vh;overflow:auto;background:#1c1c1c;border-top:2px solid #f2b705;padding:16px 18px 80px;font-size:16px;line-height:1.5;transform:translateY(100%);transition:transform .3s;user-select:text;-webkit-user-select:text}
+body.shownotes #notes{transform:none}
+body.shownotes #track{width:min(100vw,calc(58vh*16/9));align-self:flex-start;margin-top:2vh}
+#notes h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#f2b705;margin-bottom:8px}
+#notes p{margin-bottom:10px;white-space:pre-wrap}
+#grid{position:fixed;inset:0;background:rgba(10,10,10,.97);overflow:auto;padding:18px 18px 90px;display:none;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;align-content:start}
+body.showgrid #grid{display:grid}
+#grid button{border:2px solid transparent;border-radius:8px;background:none;color:#ddd;cursor:pointer;text-align:left;font-size:13px;padding:0}
+#grid button.cur{border-color:#f2b705}
+#grid img{width:100%;aspect-ratio:16/9;display:block;border-radius:6px;background:#fff}
+#grid span{display:block;padding:6px 4px}
+#menu{position:fixed;right:12px;bottom:72px;background:#1c1c1c;border-radius:12px;padding:6px;display:none;min-width:240px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+body.showmenu #menu{display:block}
+#menu a,#menu div{display:flex;align-items:center;gap:10px;color:#eee;text-decoration:none;padding:11px 12px;border-radius:8px;font-size:15px}
+#menu a:hover{background:rgba(255,255,255,.1)}
+#menu svg{width:20px;height:20px;fill:none;stroke:#f2b705;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#menu .hint{color:#999;font-size:13px;display:block;line-height:1.5}
+#hint{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:rgba(0,0,0,.75);padding:10px 16px;border-radius:20px;font-size:14px;transition:opacity .6s;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="stage"><div id="track"><img id="cur" alt="" draggable="false"></div></div>
+<div id="notes"><h3 id="ntitle">Notes</h3><div id="ntext"></div></div>
+<div id="grid"></div>
+<div id="menu">
+ <a href="Developpement_personnel_et_Intelligence_emotionnelle.pptx" download><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Télécharger le PowerPoint</a>
+ <a href="Developpement_personnel_et_Intelligence_emotionnelle.pdf" download><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Télécharger le PDF</a>
+ <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span class="hint">Glisser ou toucher le bord droit / gauche pour changer de diapo. Clavier : flèches, Espace, F plein écran, N notes, G aperçu.</span></div>
+</div>
+<div id="bar">
+ <button class="b" id="bPrev" aria-label="Diapo précédente"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+ <span id="num">1 / 27</span>
+ <button class="b" id="bNext" aria-label="Diapo suivante"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+ <span class="sp"></span>
+ <button class="b" id="bGrid" aria-label="Aperçu des diapos"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
+ <button class="b" id="bNotes" aria-label="Notes de l'orateur"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 9h8M8 13h8M8 17h5"/></svg></button>
+ <button class="b" id="bFull" aria-label="Plein écran"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+ <button class="b" id="bMenu" aria-label="Plus d'options"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/></svg></button>
+</div>
+<div id="hint">Glissez ou touchez les bords pour changer de diapo</div>
+<script>
+var META={"notes": ["Présenter le groupe et le sujet : deux parties complémentaires. La première porte sur le développement personnel, de la zone de confort à la zone de croissance ; la seconde sur l'intelligence émotionnelle, comprendre ses émotions pour mieux les gérer.", "Annoncer le plan : la partie 1 part de la connaissance de soi pour arriver à un plan d'action sur 90 jours ; la partie 2 explique le fonctionnement des émotions et propose des outils concrets pour les gérer.", "Transition vers la première partie : la transformation intégrale.", "Le développement personnel n'est pas une transformation en quelqu'un d'autre : c'est devenir pleinement soi-même. Trois capacités sont visées : gérer la complexité, rester agile sans perdre son identité, et être résilient en transformant le stress en énergie durable.", "Se connaître répond à « quoi ? » : c'est une description. Se comprendre répond à « pourquoi ? » : c'est l'origine de nos réactions. C'est la compréhension qui permet de changer. Question probable : « Se connaître ou se comprendre ? » Réponse : se connaître décrit, se comprendre explique, et c'est la compréhension qui transforme.", "Carl Rogers distingue trois images : réelle, sociale et idéale. La congruence, c'est l'accord entre ce que je suis et ce que je montre. Un grand écart crée du stress et le syndrome de l'imposteur ; la congruence apporte confiance, énergie et décisions alignées.\nComplément du cours : le prof propose une auto-évaluation de la congruence sur 10, selon trois dimensions. Authenticité : qui je suis face à ce que je montre. Épanouissement : qui je suis face à qui je veux être. Crédibilité : mon message verbal face à ma communication non verbale.", "La fenêtre de Johari croise ce que je sais de moi et ce que les autres savent de moi. L'objectif est d'agrandir la zone publique. Question probable : « Comment réduire sa zone aveugle ? » Réponse : en demandant du feedback à des personnes de confiance. La zone cachée se réduit par l'authenticité, la zone inconnue se révèle par l'expérience.\nComplément du cours : les 3 questions de feedback à poser à 3 personnes de confiance. Quelle est ma plus grande force que je sous-estime ? Quel comportement ai-je régulièrement sans m'en rendre compte ? Quel est mon angle mort principal qui freine ma progression ? Citation du cours (Brené Brown) : la vulnérabilité n'est pas une faiblesse, c'est notre mesure la plus précise du courage.", "Trois freins : les croyances limitantes, qui nous protègent mais nous enferment ; la mentalité fixe, opposée à la mentalité de croissance ; et l'Ego, qui veut avoir raison, face à l'Essence, qui veut apprendre. L'idée est de mettre l'Ego au service de l'Essence.\nComplément du cours : autre exemple de croyance limitante, « Si je dis non, on ne m'aimera plus ».", "Quatre zones : confort, peur, apprentissage, croissance. Question probable : « Pourquoi reste-t-on dans sa zone de confort ? » Réponse : on confond l'inconfort de la zone de peur avec un vrai danger, alors on fait demi-tour. Et après la zone de croissance ? Elle devient le nouveau confort, et le cycle recommence plus haut.\nComplément du cours. Zone de confort : sécurité, routine, contrôle ; signes : répétition, évitement, excuses (« ce n'est pas le bon moment »), ennui, préférence pour le statu quo. Zone de peur : procrastination, recherche d'excuses, comparaison aux autres, discours « je ne suis pas capable », abandon rapide. Zone d'apprentissage : « je ne peux pas » devient « je vais essayer », « j'ai peur » devient « j'apprends ». Zone de croissance : vision claire, leadership, alignement ; on ne subit plus le changement, on le provoque.", "Pour chaque passage, des stratégies concrètes : petits défis quotidiens pour sortir du confort, agir malgré la peur en découpant l'objectif en micro-étapes, puis pratique intensive, mentor et mesure des progrès pour atteindre la croissance.\nComplément du cours, la boîte à outils : journal de progression, objectifs SMART (Spécifiques, Mesurables, Atteignables, Réalistes, Temporels), visualisation, gestion du stress (respiration, méditation), feedback. Conclusion du prof : la croissance n'est pas une question de talent, mais de courage et de constance.", "L'Ikigai est le point de rencontre de quatre cercles : ce que j'aime, ce pour quoi je suis doué, ce dont le monde a besoin, ce pour quoi je peux être payé. Quand une partie manque, on le ressent : la passion sans richesse, la mission sans sécurité, la vocation sans passion.\nComplément du cours, détecter un désalignement : satisfaction mais sentiment d'inutilité, il manque le besoin du monde ; confort mais sentiment de vide, il manque la passion ; excitation mais incertitude financière, il manque la profession (être payé). L'Ikigai permet d'atteindre le flow : une immersion totale où le temps disparaît.", "Grâce à la neuroplasticité, le cerveau peut changer à tout âge. Une habitude se construit par la répétition, en environ 90 jours, selon une boucle : un signal déclencheur, une routine, puis une récompense qui fixe l'habitude.\nComplément du cours, l'effort cumulé : jour 1, jour 30, jour 60, jour 90 (habitude ancrée). Le changement n'est pas linéaire : c'est la répétition quotidienne qui crée la transformation.", "Question probable : « Que veut dire KISS ? » Réponse : Keep, Improve, Start, Stop, c'est-à-dire garder ce qui marche, améliorer ce qui demande un réglage, commencer la nouvelle habitude, arrêter les fuites d'énergie.", "Synthèse : lucidité (se connaître), profondeur (se comprendre), alignement (congruence), sens (Ikigai) et action (KISS).", "Le plan d'action se déroule sur 90 jours, la durée nécessaire pour ancrer une habitude : faire le point la première semaine, lancer les habitudes le premier mois, ajuster le deuxième, mesurer le troisième. Chaque jour, on note une victoire dans un journal de progression.\nAttention : ce plan détaillé est notre version. Le plan du prof est plus simple : semaine 1, audit KISS complet et feedback Johari ; mois 1, mise en place de 2 nouvelles habitudes (START) ; mois 2, ajustement de la congruence et tests ; mois 3, évaluation de la transformation durable. SMART : Spécifiques, Mesurables, Atteignables, Réalistes, Temporels.", "Transition vers la deuxième partie : l'intelligence émotionnelle.", "L'intelligence émotionnelle regroupe cinq capacités : identifier, comprendre, exprimer, réguler et utiliser ses émotions et celles des autres. Selon Daniel Goleman, environ 80 % de la réussite professionnelle en dépendrait : le QI seul ne suffit pas.", "Le système limbique traite les émotions : l'amygdale détecte les menaces, l'hippocampe garde la mémoire émotionnelle, l'hypothalamus déclenche les réactions physiques. Question probable : « Qu'est-ce que le détournement amygdalien ? » Réponse : l'amygdale réagit avant que le cortex préfrontal analyse, on agit sous l'émotion puis on regrette.", "Deux hormones du stress : l'adrénaline pour la réaction immédiate, le cortisol pour le stress prolongé, toxique à haute dose. Trois hormones du bien-être : la dopamine pour la motivation, la sérotonine pour l'humeur stable, l'ocytocine pour le lien social et la confiance.", "Question probable : « Émotion ou sentiment ? » Réponse : l'émotion est brève, physique et involontaire ; le sentiment dure et dépend de nos pensées. Exemple : une peur soudaine face à une anxiété chronique.", "Paul Ekman a identifié six émotions présentes chez tous les humains. Chacune a une fonction. Question probable : « À quoi sert la colère ? » Réponse : à se défendre ; elle signale une limite franchie ou un besoin non respecté.", "Une émotion se manifeste dans le corps, dans les pensées et dans les actes. Mal gérée, elle mène au burn-out, aux conflits, à des décisions irrationnelles ou à la procrastination.\nComplément du cours, les conséquences d'une mauvaise gestion. Sur soi : stress chronique, burn-out, troubles du sommeil, baisse de motivation. Sur les relations : malentendus, conflits fréquents, retrait social, difficulté à collaborer. Sur la performance : baisse de productivité, décisions irrationnelles, procrastination.", "Lise Bourbeau décrit cinq blessures profondes qui créent des masques : rejet, abandon, humiliation, trahison et injustice. Chaque blessure entraîne une réaction typique, par exemple le besoin de tout contrôler après une trahison.\nComplément du cours : ces blessures créent des schémas répétitifs (colère, peur, hypersensibilité) et bloquent la communication authentique.", "Question probable : « Quels sont les 5 piliers de Goleman ? » Réponse : conscience de soi, maîtrise de soi, motivation, empathie, aptitudes sociales. Au travail, ils favorisent un leadership empathique ; dans la vie, moins de stress et des relations saines.", "Question probable : « Une technique pour se calmer vite ? » Réponse : la respiration 4-7-8 (inspirer 4 secondes, retenir 7, expirer 8) ou la méthode STOP. On peut aussi utiliser le thermomètre émotionnel, le journal, les 4 questions de Byron Katie et les jeux de rôle.", "Un engagement concret par pilier de Goleman, avec un moment précis. L'indicateur de réussite : après un mois, moins de réactions regrettées dans le journal et une note plus stable au thermomètre émotionnel.\nAttention : ce plan d'action est notre propre apport, construit à partir des outils du cours.", "Conclusion : la phrase de Jinbe, dite à Luffy après la perte de son frère Ace, résume la gestion des émotions : on reconnaît la perte, puis on choisit de se tourner vers ce qu'il nous reste. Se connaître, se comprendre et gérer ses émotions sont les deux faces d'une même transformation. Question probable : « Qu'avez-vous retenu personnellement ? » Préparer deux phrases sincères : une notion qui l'a marqué et l'action qu'il va mettre en place.\nLa première citation vient du cours ; celle de Jinbe est notre ajout."], "titles": ["La transformation intégrale", "Au programme", "Le développement personnel", "L'idée centrale du cours", "Se connaître ou se comprendre ?", "La congruence", "La fenêtre de Johari", "Ce qui nous freine", "De la zone de confort à la zone de croissance", "Comment passer d'une zone à l'autre", "L'Ikigai : trouver son alignement", "Le cerveau au service du changement", "La méthode KISS", "Les 5 piliers de la transformation", "Plan d'action sur 90 jours", "L'intelligence émotionnelle", "Qu'est-ce que l'intelligence émotionnelle ?", "Le cerveau émotionnel", "Les hormones des émotions", "Émotion ou sentiment ?", "Les 6 émotions universelles", "Comment l'émotion se manifeste", "Les 5 blessures émotionnelles", "Les 5 piliers de l'intelligence émotionnelle", "La boîte à outils", "Plan d'action : un engagement par pilier", "À retenir"]};
+var N=META.titles.length,i=0,B=document.body,img=document.getElementById('cur'),track=document.getElementById('track');
+function src(k){return 'slides/'+String(k+1).padStart(2,'0')+'.webp'}
+var cache=[];function pre(k){if(k>=0&&k<N&&!cache[k]){cache[k]=new Image();cache[k].src=src(k)}}
+function show(k){i=Math.max(0,Math.min(N-1,k));img.src=src(i);img.alt='Diapo '+(i+1)+' : '+META.titles[i];
+ document.getElementById('num').textContent=(i+1)+' / '+N;
+ document.getElementById('prog').style.width=((i+1)/N*100)+'%';
+ document.getElementById('ntitle').textContent='Notes · diapo '+(i+1)+' · '+META.titles[i];
+ var t=document.getElementById('ntext');t.innerHTML='';(META.notes[i]||'Pas de notes pour cette diapo.').split('\n').forEach(function(p){if(p.trim()){var e=document.createElement('p');e.textContent=p;t.appendChild(e)}});
+ if(location.hash!=='#'+(i+1))history.replaceState(null,'','#'+(i+1));
+ pre(i+1);pre(i+2);pre(i-1);
+ [].forEach.call(document.querySelectorAll('#grid button'),function(b,j){b.classList.toggle('cur',j===i)})}
+function next(){show(i+1)}function prev(){show(i-1)}
+// Aperçu
+var g=document.getElementById('grid');
+META.titles.forEach(function(t,k){var b=document.createElement('button');b.innerHTML='<img loading="lazy" alt=""><span></span>';b.querySelector('img').src=src(k);b.querySelector('span').textContent=(k+1)+'. '+t;b.onclick=function(){B.classList.remove('showgrid');show(k)};g.appendChild(b)});
+// Boutons
+function tog(c){B.classList.toggle(c);wake()}
+document.getElementById('bPrev').onclick=function(e){e.stopPropagation();prev()};
+document.getElementById('bNext').onclick=function(e){e.stopPropagation();next()};
+document.getElementById('bGrid').onclick=function(){B.classList.remove('showmenu');tog('showgrid')};
+document.getElementById('bNotes').onclick=function(){B.classList.remove('showmenu');tog('shownotes');document.getElementById('bNotes').classList.toggle('on',B.classList.contains('shownotes'))};
+document.getElementById('bMenu').onclick=function(){tog('showmenu')};
+function full(){var d=document,e=d.documentElement;try{if(!(d.fullscreenElement||d.webkitFullscreenElement)){(e.requestFullscreen||e.webkitRequestFullscreen).call(e)}else{(d.exitFullscreen||d.webkitExitFullscreen).call(d)}}catch(x){}}
+document.getElementById('bFull').onclick=full;
+// Clavier (y compris télécommandes de présentation)
+addEventListener('keydown',function(e){var k=e.key;
+ if(k==='ArrowRight'||k==='ArrowDown'||k===' '||k==='PageDown'||k==='Enter'){e.preventDefault();next()}
+ else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'||k==='Backspace'){e.preventDefault();prev()}
+ else if(k==='Home')show(0);else if(k==='End')show(N-1);
+ else if(k==='f'||k==='F')full();else if(k==='n'||k==='N')document.getElementById('bNotes').click();
+ else if(k==='g'||k==='G')document.getElementById('bGrid').click();
+ else if(k==='Escape')B.classList.remove('showgrid','showmenu');wake()});
+// Glisser et toucher
+var stage=document.getElementById('stage'),x0=null,y0=0,t0=0,pid=null;
+stage.addEventListener('pointerdown',function(e){if(e.target.closest('#bar'))return;if(e.pointerType==='mouse')e.preventDefault();x0=e.clientX;y0=e.clientY;t0=Date.now();pid=e.pointerId;try{stage.setPointerCapture(pid)}catch(x){}track.style.transition='none'});
+stage.addEventListener('pointermove',function(e){if(x0===null||e.pointerId!==pid)return;var dx=e.clientX-x0;if(Math.abs(dx)>Math.abs(e.clientY-y0))track.style.transform='translateX('+dx*.6+'px)'});
+function up(e){if(x0===null||e.pointerId!==pid)return;var dx=e.clientX-x0,dy=e.clientY-y0;track.style.transition='';track.style.transform='';x0=null;
+ if(B.classList.contains('showmenu')){B.classList.remove('showmenu');return}
+ if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){dx<0?next():prev()}
+ else if(Math.abs(dx)<10&&Math.abs(dy)<10&&Date.now()-t0<500){e.clientX<innerWidth*0.3?prev():next()}
+ wake()}
+stage.addEventListener('pointerup',up);stage.addEventListener('pointercancel',function(){x0=null;track.style.transition='';track.style.transform=''});
+// Molette
+var wl=0;addEventListener('wheel',function(e){if(B.classList.contains('showgrid')||e.target.closest('#notes'))return;var n=Date.now();if(n-wl<450)return;wl=n;e.deltaY>0?next():prev()},{passive:true});
+// Masquer les commandes après inactivité
+var it;function wake(){B.classList.remove('idle');clearTimeout(it);it=setTimeout(function(){if(!B.classList.contains('showmenu')&&!B.classList.contains('showgrid'))B.classList.add('idle')},3000)}
+addEventListener('mousemove',wake);
+setTimeout(function(){document.getElementById('hint').style.opacity=0},3500);
+addEventListener('hashchange',function(){var k=parseInt(location.hash.slice(1),10);if(k&&k-1!==i)show(k-1)});
+show((parseInt(location.hash.slice(1),10)||1)-1);wake();
+// Hors ligne : les diapos restent disponibles sans Internet après une première ouverture
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(function(){});
+</script>
+</body>
+</html>
